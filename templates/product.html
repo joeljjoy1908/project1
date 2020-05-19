@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  <main class="mt-1 pt-4">
+      
+    <div class="container dark-grey-text mt-5">
+        
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-3 mb-4">
+
+          {% comment %}<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">{% endcomment %}
+          <img src="{{ object.image.url }}" class="card-img-top">
+           <a href="{{ object.get_absolute_url }}">
+           <div class="mask rgba-white-slight"></div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">{{ object.get_category_display }}</span>
+              </a>
+            </div>
+
+            <p class="lead">
+              {{object.title}}<br>
+              {% if object.discount_price %}
+              <span class="mr-1">
+                <del>INR :{{ object.price }}</del>
+              </span>
+              <span>INR :{{ object.discount_price }}</span>
+              {% else %}
+              <span>INR :{{ object.price }}</span>
+              {% endif %}
+            </p>
+
+            <p class="lead font-weight-bold">Description</p>
+
+            <p>{{ object.description }}</p> 
+            <form method="POST" >
+              <p class="font-weight-bold"></p>
+
+
+              <input class="form-control" type="text" placeholder="Any sweet message to put on " name="caketext">
+            <br><input class="form-control" type="text" placeholder="Delivery Phone number" name="phoneno">
+               <label>Delivery Date : </label><input type="date" class="form-control"  name="delivery">
+              <br>
+          </form>
+            {% comment %} <form class="d-flex justify-content-left">
+              <!-- Default input -->
+              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+              <button class="btn btn-primary btn-md my-0 p" type="submit">
+                Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+            </form> {% endcomment %}
+            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+              Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
+            <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">
+              Remove from cart
+            </a>
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <hr>
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+
+          <!--<h4 class="my-4 h4">Additional information</h4>-->
+          <div class="box">
+              <p style="font-family:Lucida Calligraphy; font-size:50px; font-style:italic;">Getting Ready to say "I dO"?
+                </p>
+              <p><i>WE COULDN'T BE MORE EXCITED TO HELP CREATE YOUR DREAM CAKE! TO BOOK A TASTING OR INQUIRE ABOUT WEDDING CAKES PLEASE CONTACT US</i></p>
+            </div>
+
+         
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+
+          <!--<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+-->
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <!--<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+            -->
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <!--<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+              -->
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row--> 
+
+    </div>
+  </main>
+
+{% endblock content %}
